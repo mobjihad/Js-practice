@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Element</title>
+</head>
+
+<body>
+
+    <script>
+        function createEl() {
+
+            const div = document.createElement('text')
+            div.style.backgroundColor = "red";
+            div.style.padding = "5px";
+
+
+            // const addtext ="Hello This text is created through DOM"
+            // div.innerHTML = addtext;
+
+
+            const addtext = document.createTextNode("Hello This text is created through DOM");
+            div.appendChild(addtext);
+
+
+            document.body.appendChild(div)
+
+        }
+
+        function addEl(lang) {
+
+            const li = document.createElement('li')
+            li.appendChild(document.createTextNode(lang))
+            li.style.listStyle = "inside"
+            document.body.appendChild(li);
+             console.log(li)
+        }
+        createEl();
+        addEl("Java");
+        addEl("JS");
+        addEl("TS");
+
+        //edit
+
+        // const secondEl = document.querySelector("li:nth-of-type(2)")
+        // //secondEl.innerHTML= "Python"
+
+        // const newli = document.createElement('li')
+        // newli.textContent = "Mojo"
+        // newli.style.listStyle = "inside"
+        // secondEl.replaceWith(newli)
+       
+     function editEl(element, content){
+
+            const oldel = document.querySelector(element)
+
+            const newel = document.createElement('li')
+            newel.style.listStyle = "inside"
+            const text = document.createTextNode(content)
+            newel.appendChild(text)
+
+            oldel.replaceWith(newel)
+
+
+     }
+     
+     const position = 3 
+     const ele = `li:nth-of-type(${position})`
+
+     editEl(ele,"Dart")
+
+
+    </script>
+</body>
+
+</html>
